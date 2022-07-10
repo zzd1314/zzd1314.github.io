@@ -1,0 +1,1 @@
+(function(){var c9h=NEJ.P,a8i=c9h("nej.e"),h9c=c9h("nej.v"),F9w=c9h("nm.m"),N9E=c9h("nm.m"),b9i,L9C;F9w.bEQ5V=NEJ.C();b9i=F9w.bEQ5V.M9D(F9w.dm0x);b9i.bK9B=function(){this.bT0x()};a8i.cW0x("template-box");new N9E.bEQ5V})()

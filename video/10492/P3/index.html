@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+	<title>av10492</title>
+	
+	<link rel="stylesheet" href="css/base.min.css">
+	<script src="js/CommentCoreLibrary.min.js"></script>
+	<script src="js/ABPlayerHTML5.min.js"></script>
+</head>
+<body>
+	<video id="player" src="https://filifili.ml:1337/10492/P3/02.mp4" autobuffer="true">请去找个支持html5的浏览器再打开</video>
+	<div id="my-player"></div>
+	<script type="text/javascript">
+		var inst = ABP.create( document.getElementById('my-player'), {
+  'src': {'playlist':[{'video':document.getElementById('player'),'comments':'danmaku.xml'}]},
+  'width': 320,
+  'height': 240
+});
+//(new CommentLoader(inst.cmManager)).load('GET', 'http://mc.myunco.xyz:1337/mopemope.xml');
+
+	</script>
+<a href="https://www.google.cn/chrome/">没弹幕？</a>
+
+</body></html>
