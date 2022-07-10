@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans"><head><meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- JQuery JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <!-- MDUI CSS -->
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <!-- Material Icons CSS -->
+    <link rel="stylesheet" href="css/icon.css">
+
+    <link rel="stylesheet" href="css/base.min.css">
+    <script src="js/CommentCoreLibrary.min.js"></script>
+    <script src="js/ABPlayerHTML5.min.js"></script>
+
+    <title>filifili - 在线弹幕播放器</title>
+</head>
+
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer'}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <a href="javascript:;" class="mdui-typo-headline">filifili</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="mdui-drawer" id="drawer">
+        <ul class="mdui-list">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <a href="index.html" class="mdui-list-item-content">主页</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple mdui-list-item-active">
+                <i class="mdui-list-item-icon mdui-icon material-icons">play_arrow</i>
+                <div class="mdui-list-item-content">在线弹幕播放器</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">comment</i>
+                <a href="comment.html" class="mdui-list-item-content">留言板</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">info</i>
+                <a href="about.html" class="mdui-list-item-content">关于</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-container">
+        <div class="mdui-row">
+            <div id="sandbox"></div>
+            <p>视频:</p><input type="file" id="video">
+            <p>弹幕:</p><input type="file" id="danmaku">
+            <script type="text/javascript">
+                function getObjectURL(file) {
+                    var url = null;
+                    if (window.createObjectURL != undefined) { // basic
+                        url = window.createObjectURL(file);
+                    } else if (window.URL != undefined) { // mozilla(firefox)
+                        url = window.URL.createObjectURL(file);
+                    } else if (window.webkitURL != undefined) { // webkit or chrome
+                        url = window.webkitURL.createObjectURL(file);
+                    }
+                    return url;
+                }
+                var danmaku = document.getElementById('danmaku')
+                var sandbox = document.getElementById('sandbox')
+                var Player = null
+                var video = document.getElementById('video')
+                var inst = null
+
+                function onClick() {
+                    if (typeof video.files[0] != "undefined") {
+                        sandbox.innerHTML = ""
+                        var controller = document.createElement('div')
+                        Player = document.createElement('video')
+                        sandbox.appendChild(Player)
+                        sandbox.appendChild(controller)
+                        Player.src = getObjectURL(video.files[0])
+                        var file = danmaku.files[0]
+                        if (typeof file == "undefined") {
+                            file = new Blob([""])
+                        }
+                        var inst = ABP.create(controller, {
+                            'src': {
+                                'playlist': [{
+                                    'video': Player,
+                                    'comments': getObjectURL(file)
+                                }]
+                            }
+                        });
+                    }
+                }
+                danmaku.onchange = onClick
+                video.onchange = onClick
+            </script>
+        </div>
+    </div>
+
+    <!-- MDUI JavaScript -->
+    <script src="js/mdui.min.js"></script>
+
+
+</body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans"><head><meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- JQuery JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <!-- MDUI CSS -->
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <!-- Material Icons CSS -->
+    <link rel="stylesheet" href="css/icon.css">
+
+    <script type="text/javascript" src="js/base64.js"></script>
+	<style>
+		.van-message {
+			padding: 10px 16px;
+			border-radius: 4px;
+			box-shadow: 0 4px 12px rgba(0,0,0,.15);
+			background: rgba(0,0,0,.8);
+			color: #fff;
+			margin-bottom: 10px;
+			pointer-events: all;
+			transition: opacity .3s,transform .3s;
+			position: absolute;
+		}
+	</style>
+
+    <title>小破站 - 留言板</title>
+</head>
+
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer'}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <a href="javascript:;" class="mdui-typo-headline">小破站</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="mdui-drawer" id="drawer">
+        <ul class="mdui-list">
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <a href="index.html" class="mdui-list-item-content">主页</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">play_arrow</i>
+                <a href="danmakuPlayer.html" class="mdui-list-item-content">在线弹幕播放器</a>
+            </li>
+            <li class="mdui-list-item mdui-ripple mdui-list-item-active">
+                <i class="mdui-list-item-icon mdui-icon material-icons">comment</i>
+                <div class="mdui-list-item-content">留言板</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">info</i>
+                <a href="about.html" class="mdui-list-item-content">关于</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-dialog" id="commentDialog">
+        <div class="mdui-dialog-title">说点什么</div>
+        <div class="mdui-dialog-content">
+            <div class="mdui-textfield">
+                <textarea class="mdui-textfield-input" maxlength="114514" rows="6" placeholder="" id="data"></textarea>
+            </div>
+            <!--请不要去尝试SQL注入，因为我们并没有搞数据库233333333333，评论是专有格式的，而且请不要发送恶意脚本，一定会导致被封禁(人工审核)-->
+            <p>
+                用户名: <input type="text" id="username"> 验证码: <input type="text" id="capcha">
+                <img src="img/capcha.jpeg" id="capchaImg" style="top: 13px;position: relative;" onclick="this.src='../api/capcha.jsp?ts='+new Date().getTime()">
+            </p>
+            <input class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" type="submit" value="提交" id="submit">
+            <input class="mdui-btn mdui-btn-raised mdui-ripple" type="submit" value="上传图片" id="img">
+            <input class="mdui-btn mdui-btn-raised mdui-ripple" type="submit" onclick="sah()" value="显示/隐藏表情">
+            <script type="text/javascript" src="js/script.js"></script>
+            <div class="van-message" hidden=""></div>
+            <div id="emjio" style="display: none"></div>
+            <script>
+                function sah() {
+                    var div = document.getElementById("emjio")
+                    if (div.style.display == "none") {
+                        div.style.display = ""
+                    } else {
+                        div.style.display = "none"
+                    }
+                }
+            </script>
+            <script type="text/javascript" src="js/emjio.js"></script>
+        </div>
+    </div>
+
+    <button id="addbtn" class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple mdui-hidden" mdui-dialog="{target: '#commentDialog'}">
+        <i class="mdui-icon material-icons">add</i>
+    </button>
+
+    <div class="mdui-progress" id="prog">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+
+    <div class="mdui-container">
+        <div class="mdui-row mdui-typo">
+            <div id="point"></div>
+        </div>
+    </div>
+
+    <script>
+        $.ajax({
+            url: 'comment.jsp',
+            type: 'get',
+            success: function(data) {
+                $("#prog").addClass("mdui-hidden")
+                $("#addbtn").removeClass("mdui-hidden")
+                $("#point").html(data)
+                window.location.hash = "bottom"
+            },
+            error: function(data) {
+                $("#prog").addClass("mdui-hidden")
+                $("#point").html(data.responseText)
+            }
+        })
+    </script>
+
+    <!-- MDUI JavaScript -->
+    <script src="js/mdui.min.js"></script>
+
+
+</body></html>
