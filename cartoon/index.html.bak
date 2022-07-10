@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/background.css"><!-- 我的css代码路径 -->
+	<title>番剧推荐</title>
+<style>
+
+           .parent{
+                   width: 210px;
+                   height: 300px;
+                   margin: 0 auto;
+                   position: fixed;
+                   left: 10px;
+                   top: 5px;
+           }
+          .child{
+                  width: 200px;
+                  height: 300px;
+                  margin: 0 auto;
+                  position: fixed;
+                  left: 260px;
+                  top: 5px;
+          }
+          .child2{
+                  width: 210px;
+                  height: 300px;
+                  position: fixed;
+                  top: 5px;
+                  left: 10px;
+          }
+          .child3{
+                  width: 210px;
+                  height: 300px;
+                  position: fixed;
+                  left: 10px;
+                  top: 5px;
+          }
+
+          p{
+                 margin: 0;
+                 color: yellow;
+                 position: fixed;
+                 left: 60px;
+                 top: 373px;
+                 font-size: 23px;
+          }
+
+           b{
+                 margin: 0;
+                 color: yellow;
+                 position: fixed;
+                 left: 262px;
+                 top: 373px;
+                 font-size: 21px;
+          }
+</style>
+</head>
+<body>
+    <div class="bgimg"></div>
+    <div class="parent">
+           <img src="https://qixu8.pilipata.com/upload/vod/20210606-1/1097983cb8d9c37eb71fdb970872d42c.jpg" width="243" height="368" alt="">
+    </div>
+
+     <div class="child">
+            <img src="https://qixu8.pilipata.com/upload/vod/20200907-1/a083526c5d10ddb3a1f7cc2b902755b0.jpg" width="235" height="368" alt="">
+     </div>
+           <div class="child2">
+                  <b><a href="https://www.yhgogo.com/voddetail/DARLINGintheFRANXXguojiadui.html" style="text-decoration:none"><font color="yellow">DARLING in the FRANXX</font></a></b>
+     </div>
+           <div class="child3">
+                  <p><a href="https://www.bilibili.com/bangumi/play/ss34650" style="text-decoration:none"><font color="yellow">政宗君的复仇</font></a></p>
+    </div>
+</body>
+</html>

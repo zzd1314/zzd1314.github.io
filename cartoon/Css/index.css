@@ -1,0 +1,347 @@
+@media screen and (min-width:992px) {
+    /* 去除浏览器自带边缘 */
+    *{
+        margin: 0;
+        padding: 0;
+        text-decoration:none;
+    }
+     .box{
+        width: 100%;
+        height: 153vh;
+        left: 0;
+        top: 0;
+       
+        background-color: #ffb6c1;
+        justify-content: center;
+        margin: 0 auto;
+
+    } 
+     .content{
+        width: 1050px;
+        height: 153vh;
+        left: 15%;
+        background-color: #ffffff;
+        position: absolute;
+    }
+    .login{
+      position: relative;
+     left: 70%;
+      top: 2rem;
+      color: #ffb6c1;
+      cursor: pointer;
+     }
+     .register{
+        position: relative;
+       left: 72%;
+        top: 2rem;
+        color: #ffb6c1;
+        cursor: pointer;
+       }
+       .login:hover{
+           color: #409eff;
+       }
+       .register:hover{
+           color: #409eff;
+       }
+     .title{
+         font-size: 2rem;
+         position: relative;
+         left: 10%;
+         top: 1rem;
+         color: #ffb6c1;
+     }
+     .tran{
+         width: 94%;
+         height: 60vh;
+         position: relative;
+         left: 3%;
+         top: 3rem;
+     }
+     .dh{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-around;
+         height: 2rem;
+         background-color: #ffb6c1;
+     }
+     div.dh #index{
+         height: 2rem;
+         text-align: center;
+        line-height: 2rem;
+         width: 8rem;
+     }
+     .dh>#index a{
+        color: #ffffff;
+     }
+     .dh>#index a:hover{
+        color: #409eff;
+        font-weight: bold;
+     }
+     .dh>#index:hover{
+         background-color:#ffffff ;
+     }
+     .picture{
+         position: relative;
+         width: 100%;
+         height: 60vh;
+         overflow: hidden;
+     }
+    .box2{
+        position: absolute;
+        width: 100%;
+        height: 60vh;
+        animation: box2 20s infinite ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+    /* 利用css动画实现轮播效果 */
+     @keyframes box2{
+        0%{
+            transform:translateX(-100%);
+        }
+        50%{
+            transform:translateX(-200%);
+        }
+        100%{
+            transform:translateX(-300%);
+        }
+
+    }
+    .box2:nth-child(1){
+        left: 100%;
+    }
+    .box2:nth-child(2){
+        left: 200%;
+    }
+    .box2:nth-child(3){
+        left: 300%;
+    }
+    .img3{
+        width: 100%;
+        height: 100%;
+    }
+    .box3{
+        width: 39%;
+        height: 64.5vh;
+        background-color: #ffb6c1;
+        border-radius: 10px;
+        position: relative;
+        left: 0;
+        top: 5.5rem;
+        left: 3%;
+    }
+    h3{
+        padding-top: 1.3rem;
+        padding-left: 0.9rem;
+    }
+    .news{
+        width: 100%;
+        height: 56vh;
+        position: relative;
+        top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      
+    }
+    .news .picture{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: #409eff 1px dashed;
+        height: 14vh;
+        align-items: center;
+    }
+    .img4{
+     padding-left: 1rem;
+     width: 10rem;
+     height: 90%;
+     border-radius: 5px;
+     cursor: pointer;
+    }
+    .img4:hover{
+        height: 95%;
+
+    }
+    .news .text{
+        position: relative;
+       left: 1rem;
+       cursor: pointer;
+    }
+    .news .text:hover{
+        color: #409eff;
+    }
+    .foot{
+        position:relative;
+        left: 3%;
+        height: 2rem;
+        width: 100%;
+	  top: -30%;
+        text-align: center;
+    }
+    .box4{
+        width: 558px;
+        height: 65vh;
+        background-color: #ffb6c1;
+        border-radius: 10px;
+        position: relative;
+       top: -33.5%;
+       left: 28.7rem;
+         
+    }
+    #box4{
+        display: flex;
+        width: 100%;
+        height: 32vh;
+        border-radius: 10px;
+        position: relative;
+        justify-content:space-around;
+    }
+    #box4>div{
+    border-radius: 10px;
+    margin-top: 2rem;
+     width: 22vh;
+     height: 30vh;
+     cursor: pointer;
+    }
+    #box4>div:hover{
+        width: 25vh;
+        height: 32vh;
+    }
+    .one{
+        background-image: url(./Image/8.jpg);
+        background-size: cover;
+    }
+    .two{
+        background-image: url(./Image/9.jpg);
+        background-size: cover;
+    }
+    .three{
+        background-image: url(./Image/10.jpg);
+        background-size: cover;
+    }
+    .box4 span{
+        position: relative;
+        top: 2rem;
+        left: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .box5{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 18vh;
+        top: 3rem;
+        cursor: pointer;
+    }
+    .box5:hover{
+        color: #409eff;
+    }
+    .link{
+        position: relative;
+        margin-top: 3.5rem;
+        margin-left: 1rem;
+        color: black;
+    } 
+    /* 二级菜单栏实现 */
+     .dropdown {
+        position: relative;
+       
+    }
+    .dropdown a{
+        color: white;
+    }
+    .item {
+        position: absolute;
+        background-color: #ffb6c1;
+        min-width: 160px;
+        border-radius: 0 0 5% 5%;
+        right: 0.01rem;
+        top: 1.8rem;
+        font: 0.7rem Montserrat-SemiBoldItalic;
+        font-weight: normal;
+        visibility: hidden;
+        z-index: 100;
+        cursor: pointer;
+    }
+    
+    .item div {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        transition: all 0.1s;
+        visibility: hidden;
+        height: 0;
+        z-index: 100;
+    }
+    
+    .item div:hover {
+        color: #409eff;
+        font-weight: bold;
+     
+    }
+    .dropdown:hover .item div{
+      transition-duration: 0.5s;
+      visibility: visible;
+      height: 1rem;
+    }
+    .dropdown:hover .item {
+        visibility: visible;
+    } 
+    /* 漫界新闻页面样式 */
+    .top
+    {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-image: url();
+        background-size: 100% 100vh;
+        top: 0;
+        left: 0;
+    }
+    .h1{
+        position: absolute;
+        top: 27rem;
+        left: 43rem;
+        font-size: 2rem;
+    }
+    .h2{
+        position: relative;
+        top: 33rem;
+        width: 30rem;
+        height: 35rem;
+        left: 5rem;
+
+    }
+    .h3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 1rem;
+        position: absolute;
+        left: 45rem;
+        width: 42rem;
+        height: 35rem;
+        
+        top: 33rem;
+    }
+    .foot2{
+        position: absolute;
+        bottom: -25rem;
+        left: 45rem;
+    }
+    .title2{
+        font-size: 2rem;
+         position: relative;
+         left: 2%;
+         top: -8rem;
+         
+    }
+    .title2 a{
+        color: #ffb6c1;
+    }
+    }
